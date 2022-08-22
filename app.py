@@ -5,8 +5,8 @@ from werkzeug.exceptions import BadRequest
 from container import file_handler, log_query
 from constants import COMMANDS_NUMBER, AVAILABLE_COMMANDS
 
-app = Flask(__name__)
-api = Api(app)
+app: Flask = Flask(__name__)
+api: Api = Api(app)
 
 query_ns = Namespace('/perform_query')
 
@@ -42,4 +42,4 @@ class Query(Resource):
 
 if __name__ == '__main__':
     api.add_namespace(query_ns)
-    app.run(debug=True, port=2024)
+    app.run(port=2024, debug=True)
